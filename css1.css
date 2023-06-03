@@ -1,0 +1,428 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i&subset=greek-ext');
+
+
+img{
+    height: 200px;
+    width: 200px;
+    margin: 5px
+}
+.profilepic{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+
+}
+body {
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    color: #fff;
+    font-family: "Exo", sans-serif;
+    background: linear-gradient(-45deg, #ffffff, #3990cd, #994df5, #ea4646);
+    background-size: 400% 400%;
+    -webkit-animation: gradientBG 20s ease infinite;
+    animation: gradientBG 20s ease infinite;
+
+
+}
+button {
+    width: 220px;
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    text-transform:uppercase;
+    font-family: 'Noto Sans', sans-serif;
+
+
+}
+
+button:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+
+}
+
+button:active {
+    color: #000000
+}
+
+button:active:after {
+    /*background: transparent;*/
+}
+
+button:hover:before {
+    opacity: 1;
+}
+
+button:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+
+
+@-webkit-keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+.text-center{
+    color:#fff;
+    text-transform:uppercase;
+    font-size: 23px;
+    margin: -50px 0 80px 0;
+    display: block;
+    text-align: center;
+}
+.box{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius:3px;
+    padding:70px 100px;
+}
+.input-container{
+    position:relative;
+    margin-bottom:25px;
+}
+.input-container label{
+    position:absolute;
+    top:0px;
+    left:0px;
+    font-size:16px;
+    color:#fff;
+    pointer-event:none;
+    transition: all 0.5s ease-in-out;
+}
+.input-container input{
+    border:0;
+    border-bottom:1px solid #555;
+    background:transparent;
+    width:100%;
+    padding:8px 0 5px 0;
+    font-size:16px;
+    color:#fff;
+}
+.input-container input:focus{
+    border:none;
+    outline:none;
+    border-bottom:1px solid #e74c3c;
+}
+/*.btn:after{
+	content:"";
+	position:absolute;
+	background:rgba(0,0,0,0.50);
+	top:0;
+	right:0;
+	width:100%;
+	height:100%;
+}*/
+.input-container input:focus ~ label,
+.input-container input:valid ~ label{
+    top:-12px;
+    font-size:12px;
+
+}
+
+.input-container2{
+    position:relative;
+    margin-bottom:25px;
+}
+.input-container2 label{
+    position:absolute;
+    top:0px;
+    left:0px;
+    font-size:24px;
+    color:#fff;
+    pointer-event:none;
+    transition: all 0.5s ease-in-out;
+}
+.input-container2 input{
+    border:0;
+    border-bottom:1px solid #555;
+    background:transparent;
+    width:100%;
+    padding:8px 0 5px 0;
+    font-size:24px;
+    color:#fff;
+}
+.input-container2 input:focus{
+    border:none;
+    outline:none;
+    border-bottom:1px solid #e74c3c;
+}
+/*.btn:after{
+	content:"";
+	position:absolute;
+	background:rgba(0,0,0,0.50);
+	top:0;
+	right:0;
+	width:100%;
+	height:100%;
+}*/
+.input-container2 input:focus ~ label,
+.input-container2 input:valid ~ label{
+    top:-24px;
+    font-size:24px;
+
+}
+
+.like-btn-svg {
+    width: 80px;
+    height: 100px;
+    background: url(https://abs.twimg.com/a/1446542199/img/t1/web_heart_animation.png) no-repeat 0 0;
+    cursor: pointer;
+    margin-left: 47.5%;
+}
+.likescounter{
+    text-align: center;
+
+}
+
+input[type="checkbox"] {
+    display:none;
+}
+
+input:checked + .like-btn-svg{
+    transition: background 1s steps(28);
+    animation: fave-like-btn-svg 1s steps(28);
+    background-position: -2800px 0;
+}
+
+@keyframes fave-like-btn-svg {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: -2800px 0;
+    }
+}
+.postimageonpostpage{
+    /*display: block;*/
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+    /*height: auto;*/
+    /*width: auto;*/
+    display: block;
+    max-width:600px;
+    max-height:600px;
+    min-width: 400px;
+    min-height: 400px;
+    width: auto;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.postTypebar {
+    width: 100px;
+    height: 40px;
+}
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+}
+
+.custom-select {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-width: 0 2px 0 2px;
+    border-style: solid;
+    border-color: #394a6d;
+}
+.custom-select__trigger {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 22px;
+    font-size: 20px;
+    font-weight: 300;
+    color: #3b3b3b;
+    height: 60px;
+    width: 200px;
+    line-height: 60px;
+    background: #ffffff;
+    cursor: pointer;
+    border-width: 2px 0 2px 0;
+    border-style: solid;
+    border-color: #394a6d;
+}
+.custom-options {
+    position: absolute;
+    display: block;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 60px;
+    width: 200px;
+    border: 2px solid #394a6d;
+    border-top: 0;
+    background: #fff;
+    transition: all 0.5s;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 2;
+}
+.custom-select.open .custom-options {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+}
+.custom-option {
+    position: relative;
+    display: block;
+    padding: 0 22px 0 22px;
+    font-size: 22px;
+    font-weight: 300;
+    color: #3b3b3b;
+    background-color: #fff;
+    line-height: 60px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+.custom-option:hover {
+    cursor: pointer;
+    background-color: #b2b2b2;
+}
+.custom-option.selected {
+    color: #ffffff;
+    background-color: #305c91;
+}
+
+.arrow {
+    position: relative;
+    height: 15px;
+    width: 15px;
+}
+.arrow::before, .arrow::after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    width: 0.15rem;
+    height: 100%;
+    transition: all 0.5s;
+}
+.arrow::before {
+    left: -5px;
+    transform: rotate(45deg);
+    background-color: #394a6d;
+}
+.arrow::after {
+    left: 5px;
+    transform: rotate(-45deg);
+    background-color: #394a6d;
+}
+.open .arrow::before {
+    left: -5px;
+    transform: rotate(-45deg);
+}
+.open .arrow::after {
+    left: 5px;
+    transform: rotate(45deg);
+}
+
+
+
+
+.quotetext {
+    display: block;
+    height: 100px;
+    width: 250px;
+    overflow: hidden;
+    background: #fff;
+    resize: both;
+    color: #3b3b3b;
+    min-height: 40px;
+    line-height: 20px;
+}
+.commentbox {
+    display: block;
+    height: 200px;
+    margin: 10px;
+    overflow: hidden;
+    background: #fff;
+    resize: both;
+    color: #3b3b3b;
+    min-height: 40px;
+    line-height: 20px;
+
+}
+.commentpost{
+    float: right;
+    margin: 10px;
+}
+
+.quotetext[content]:before {
+    /*content: "Type your quote here";*/
+    color: gray;
+}
+
+.viewText {
+    text-align: center;
+    alignment: center;
+    font-size: 25px;
+}
+.commentthing{
+    margin: 10px;
+    font-size: 25px;
+}
+.pfpcomment{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+
+}

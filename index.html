@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="google-signin-client_id" content="45769101298-n9hb5gt6ocm8ds89o0np52rc2sgej822.apps.googleusercontent.com">
+
+    <link rel="stylesheet" type="text/css" href="css1.css"/>
+</head>
+
+<body id="body">
+
+<div id = "signinScreen" class = "box" >
+
+    <span class="text-center">login</span>
+
+    <div class="input-container">
+        <input id="namebox" type="text" required="" value="KhushMakadia4"/>
+        <label>Username</label>
+    </div>
+    <div class="input-container">
+        <input id="emailbox" type="text" required="" value="kmakadia4@gmail.com"/>
+        <label>Email</label>
+    </div>
+    <div class="input-container">
+        <input id="passbox" type="text" required="" value="Athlead1"/>
+        <label>Password</label>
+    </div>
+    <button id="enterBtn" type="button" class="btn">submit</button><br><br>
+    <button id="signup">SIGN UP</button>
+
+    <br>
+
+
+</div>
+
+<div id = "signupScreen" class = "box" hidden = hidden>
+
+    <span class="text-center">Sign Up</span>
+
+
+    <div class="input-container">
+        <input id="signUpNamebox" type="text" required="" value="KhushMakadia4"/>
+        <label>Username</label>
+    </div>
+    <div class="input-container">
+        <input id="signUpEmailbox" type="text" required="" value="kmakadia4@gmail.com"/>
+        <label>Email</label>
+    </div>
+    <div class="input-container">
+        <input id="signUpPassbox" type="text" required="" value="Athlead1"/>
+        <label>New Password</label>
+    </div>
+    <button id="signupenterBtn" type="button" class="btn">SIGN UP</button><br><br>
+    <button id="signupBack">BACK</button>
+
+</div>
+
+
+
+<div id = "app" hidden = hidden>
+    <div id = "appnavBar">
+        <button id="homeBtn">HOME</button>
+        <button id="searchBtn">SEARCH </button>
+        <button id="myprofileBtn">PROFILE</button>
+    </div>
+
+    <div id="searchPage">
+        <br> <br>
+        <div class="input-container2">
+            <input id="searchbar" type="text" onkeyup="updateSearch()"/></input>
+            <label>Search</label>
+        </div>
+
+    </div>
+
+    <div id = "homePage">
+        <p>THIS IS THE HOME PAGE</p>
+    </div>
+
+    <div id = "myprofilePage">
+
+        <div id = "myprofile">
+            <img class = "profilepic" id = "pfp" src="resources/select image picture.PNG" height="100" width="100"/>
+            <p>THIS IS THE PROFILE PAGE</p>
+            <button id="postBtn">POST</button>
+            <br>
+            <br>
+        </div>
+
+
+        <div id = "postingPage" hidden = hidden >
+            <!--        Three buttons for picking the type of post-->
+            <div id = "postNavBar">
+                <img id = "myimg"> <label id = "upProgress"></label> <br> <br>
+                <button id="simage">Select Image</button><br><br>
+                Title <input id="namebox1" type="text"/></input>
+                <br>
+                <br>
+
+                <div class="custom-select-wrapper">
+                    <div class="custom-select">
+                        <div class="custom-select__trigger">
+                            <span>Select</span>
+                            <div class="arrow"></div>
+                        </div>
+                        <div class="custom-options">
+                            <span class="custom-option" data-value="recipe">Recipe</span>
+                            <span class="custom-option" data-value="workout">Workout</span>
+                            <span class="custom-option" data-value="quote">Quote</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id = "quote" hidden = "hidden">
+                <p>THIS THE QUOTE PAGE</p>
+                <label>Type your quote here</label>
+                <span id="quoteBox" class="quotetext" role="textbox" contenteditable content="Type your quote here"></span>
+            </div>
+
+            <div id = "recipe" hidden = "hidden">
+                <p>THIS THE RECIPE PAGE</p>
+
+                <p>Prep time:<input type="text" id="prepTimetext"> mins</p>
+                <p>Cook time:<input type="text" id="cooktimeText"> mins</p>
+                <p>Serves:<input type="text" id="servingSize"> people</p>
+                <br>
+                <label>Type a bulleted list of ingredients with measurements here</label>
+                <span id="ingredientBox" class="quotetext" role="textbox" contenteditable content="Type a bulleted list of ingredients with measurements here"></span>
+                <br>
+                <label>Type your method of preparation here</label>
+                <span id="methodBox" class="quotetext" role="textbox" contenteditable content="Type your method of preparation here"></span>
+            </div>
+
+            <div id = "workout" hidden = "hidden">
+                <p>THIS THE WORKOUT PAGE</p>
+                <br>
+                <label>Write a description of the workout. For example the type of workout, what muscles it hits, the split, etc.</label>
+                <span id="workoutDescBox" class="quotetext" role="textbox" contenteditable content="Write a description of the workout. For example the type of workout, what muscles it hits, the split, etc."></span>
+                <br>
+                <label>Type a step by step walkthrough of the workout (sit ups 3x15 could be one exercise)</label>
+                <span id="workoutBox" class="quotetext" role="textbox" contenteditable content="Type a step by step walkthrough of the workout (sit ups 3x15 could be one exercise)"></span>
+            </div>
+            <br>
+            <button id="upload">Upload</button>
+        </div>
+
+    </div>
+
+</div>
+<div id = "postpage" class = "postpage" hidden = "hidden">
+    <p id="viewTitle" class="viewText"></p>
+    <p id="postType" class="viewText"></p>
+    <p id="username" class="viewText"></p>
+    <div id = "postonpostpage"></div>
+    <p id = "likescounter" class = "viewText"></p>
+    <label><input type="checkbox" id = "heart" onclick="heartchecked()">
+        <div id = "heart2" class="like-btn-svg" ></div>
+    </label>
+
+    <div id = "viewQuoteDiv" hidden = "hidden">
+        <br>
+        <p id="viewQuote" class="viewText"></p>
+        <br>
+        <br>
+    </div>
+
+    <div id = "viewRecipe" hidden = "hidden">
+        <br>
+
+        <p id="viewPrep" class="viewText"></p>
+        <p id="viewCook" class="viewText"></p>
+        <p id="viewServingSize" class="viewText"></p>
+        <br>
+        <p id="viewIngredients" class="viewText"></p>
+        <p id="viewMethod" class="viewText"></p>
+        <br>
+        <br>
+
+
+    </div>
+
+    <div id = "viewWorkoutDiv" hidden = "hidden">
+        <br>
+        <p id="viewWorkoutDesc" class="viewText"></p>
+        <p id="viewWorkout" class="viewText"></p>
+        <br>
+        <br>
+    </div>
+    <span id="commentbox" class="commentbox" role="textbox" contenteditable content="Type a bulleted list of ingredients with measurements here"></span>
+    <button class = "commentpost" onclick = "commentButton()">Post Comment</button>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-storage.js"></script>
+
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+
+<script src="javascript1.js" type="module">
+</script>
+
+</body>
+
+</html>
